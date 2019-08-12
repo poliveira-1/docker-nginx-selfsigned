@@ -1,0 +1,12 @@
+web:
+  image: "khs1994/nginx:1.15.7-alpine"
+  volumes:
+    - ./letsencrypt:/etc/letsencrypt
+    - ./selfsigned:/etc/selfsigned
+    - ./default.conf:/etc/nginx/conf.d/default.conf
+    - ./nginx.conf:/etc/nginx/nginx.conf
+    - ./content:/usr/share/nginx/html
+  ports:
+    - "80:80"
+    - "443:443"
+    - "8443:8443"
